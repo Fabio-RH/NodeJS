@@ -50,15 +50,23 @@ app.delete('/selecoes/:id',(req,res)=>{
     
 })
 
-app.put('/selecoes/:id',(req,res)=>{
-    //let index = req.params.id
-    //console.log(index)
+app.put('/selecoes/:id', (req, res) => {
     let index = buscarIndexSelecao(req.params.id)
-    //req.body.grupo
-    req.body
-    res.send("Seleção Modificada com Sucesso!")
-    
+
+    if (index === -1) {
+        return res.status(404).send("Seleção não encontrada!")
+    }
+
+    selecoes[index] = {
+        id: selecoes[index].id,
+        ...req.body
+    }
+
+    res.send("Seleção atualizada com sucesso!")
 })
+
+
+
 
 
 export default app
