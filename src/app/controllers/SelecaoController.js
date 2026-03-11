@@ -2,15 +2,7 @@ import conexao from '../database/conexao.js'
 
 class SelecaoController {
 
-    asynch index(req,res){
-        const row = await SelecaoRepository.findAll()
-        res.json(row)
-    }
-
-
-    show(req,res){
-        
-    }
+    
 
     // LISTAR TODAS
     index(req, res) {
