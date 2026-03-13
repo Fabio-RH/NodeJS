@@ -1,3 +1,5 @@
+import conexao from "../database/conexao.js"
+
 class SelecaoRepository {
 
     // método pra deixar as queries centralizado no banco
@@ -12,11 +14,11 @@ class SelecaoRepository {
 
     findAll() {
         const sql = "SELECT * FROM dbselecao.bdcopa;"
-        return this.executarQuery(sql, 'Não foi possível listar')
+        return this.executarQuery(sql,'', 'Não foi possível listar')
     }
 
     findById(id) {
-        const sql = "SELECT * FROM dbselecao.bdcopa WHERE id=?;"
+        const sql = "SELECT * FROM dbselecao.bdcopa WHERE idselecao=?;"
         return this.executarQuery(sql, id, 'Não foi possível localizar')
     }
 
@@ -26,12 +28,12 @@ class SelecaoRepository {
     }
 
     update(selecao, id) {
-        const sql = "UPDATE dbselecao.bdcopa SET ? WHERE id=?;"
+        const sql = "UPDATE dbselecao.bdcopa SET ? WHERE idselecao=?;"
         return this.executarQuery(sql, [selecao, id], 'Não foi possível atualizar')
     }
 
     delete(id) {
-        const sql = "DELETE FROM dbselecao.bdcopa WHERE id=?;"
+        const sql = "DELETE FROM dbselecao.bdcopa WHERE idselecao=?;"
         return this.executarQuery(sql, id, 'Não foi possível apagar')
     }
 }

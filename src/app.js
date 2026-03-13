@@ -1,10 +1,14 @@
 import express from 'express'
+import router from '.route.js'
 const app = express ()
 import conexao from './app/database/conexao.js'
 import SelecaoController from './app/controllers/SelecaoController.js'
 
+
 //indicar para o express ler o body como json
 app.use(express.json())
+
+app.use(router)
 
 //Mock
 // const selecoes = [
