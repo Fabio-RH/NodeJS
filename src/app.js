@@ -1,5 +1,5 @@
 import express from 'express'
-import router from '.route.js'
+import router from './route.js'
 const app = express ()
 import conexao from './app/database/conexao.js'
 import SelecaoController from './app/controllers/SelecaoController.js'
