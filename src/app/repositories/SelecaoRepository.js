@@ -36,6 +36,12 @@ class SelecaoRepository {
         const sql = "DELETE FROM dbselecao.bdcopa WHERE idselecao=?;"
         return this.executarQuery(sql, id, 'Não foi possível apagar')
     }
+
+    // método pra buscar seleções por grupo, em vez de id. Ele mostra todas as seleções que estão em um determinado grupo.
+    findByGroup(grupo) {
+        const sql = "SELECT * FROM dbselecao.bdcopa WHERE grupo_selecao=?;"
+        return this.executarQuery(sql, grupo, 'Não foi possível localizar por grupo')
+    }
 }
 
 export default new SelecaoRepository()

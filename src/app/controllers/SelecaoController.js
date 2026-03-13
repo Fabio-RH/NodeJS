@@ -53,6 +53,18 @@ class SelecaoController {
             res.status(404).json({ 'erro': erro })
         }
     }
+
+    async showByGroup(req, res) {
+        try {
+            const grupo = req.params.grupo
+            const resultado = await SelecaoRepository.findByGroup(grupo)
+            res.status(200).json(resultado)
+        } catch (erro) {
+            res.status(404).json({ 'erro': erro })
+        }
+    }
+
+    
 }
 
 export default new SelecaoController()

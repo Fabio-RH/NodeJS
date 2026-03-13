@@ -18,4 +18,7 @@ router.put('/selecoes/:id', SelecaoController.update)
 // DELETAR
 router.delete('/selecoes/:id', SelecaoController.delete)
 
+// EXTRA - LISTAR POR GRUPO
+router.get('/selecoes/grupo/:grupo', SelecaoController.showByGroup)
+
 export default router
